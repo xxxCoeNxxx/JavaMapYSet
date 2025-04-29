@@ -4,8 +4,35 @@ import scala.collection.mutable.Set
 
 object MapYSet {
     def main(args: Array[String]): Unit = {
+        ejercicio1()
+    }
+
+    private def ejercicio1(): Unit = {
+        println("-------------------------------------------")
+        println("Ejercicio 1: Invertir un Mapa")
         val personas = Map("Ana" -> 30, "Luis" -> 25, "Eva" -> 30, "Juan" -> 25)
 
+        val personasInvertido: Map[Int, Set[String]] = Map()
+        personas.foreach { case (nombre, edad) =>
+            if (personasInvertido.contains(edad)) {
+                personasInvertido(edad) += nombre
+            } else {
+                personasInvertido(edad) = Set(nombre)
+            }
+        }
+        println(personasInvertido)
+        println()
+
+/*      val resultado: Map[Int, Set[String]] = Map()
+        personas.foreach { par => 
+            val nombre = par._1
+            val edad = par._2  
+            if (resultado.contains(edad)) {
+                resultado(edad) += nombre
+            } else {
+                resultado(edad) = Set(nombre)
+            }
+        } */
     }
 }
 
@@ -14,8 +41,10 @@ object MapYSet {
 
 
 
+
 /* Ejercicio 1: Invertir un Mapa
-Dado un Map[String, Int] que asocia nombres de personas con su edad, crea un nuevo mapa que asocie cada edad con un conjunto de nombres que la tienen.
+Dado un Map[String, Int] que asocia nombres de personas con su edad, crea un nuevo mapa que asocie cada edad con un conjunto 
+de nombres que la tienen.
 
 Ejemplo de entrada:
 
@@ -40,7 +69,8 @@ Map("b" -> 7, "c" -> 10)
 
 
 Ejercicio 3: Palabras únicas en dos textos
-Dadas dos listas de palabras (pueden tener repetidas), encuentra las palabras que aparecen en ambas listas pero solo una vez en cada una.
+Dadas dos listas de palabras (pueden tener repetidas), encuentra las palabras que aparecen en ambas listas pero solo una vez 
+en cada una.
 
 Ejemplo:
 
@@ -55,7 +85,8 @@ Set("mar")
 
 
 Ejercicio 4: Map de frecuencias y filtrado
-Dada una lista de palabras, crea un mapa de frecuencias y luego filtra para quedarte solo con las palabras que aparecen más de una vez.
+Dada una lista de palabras, crea un mapa de frecuencias y luego filtra para quedarte solo con las palabras que aparecen más 
+de una vez.
 
 Ejemplo:
 
