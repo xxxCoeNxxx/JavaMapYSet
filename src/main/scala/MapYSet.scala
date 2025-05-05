@@ -5,6 +5,8 @@ import scala.collection.mutable.Set
 object MapYSet {
     def main(args: Array[String]): Unit = {
         ejercicio1()
+        ejercicio2()
+        ejercicio3()
     }
 
     private def ejercicio1(): Unit = {
@@ -34,40 +36,44 @@ object MapYSet {
             }
         } */
     }
+
+    private def ejercicio2(): Unit = {
+        println("-------------------------------------------")
+        println("Ejercicio 2: Intersección de claves y suma de valores")
+        // Salida: Map("b" -> 7, "c" -> 10)
+        val m1 = Map("a" -> 1, "b" -> 2, "c" -> 3)
+        val m2 = Map("b" -> 5, "c" -> 7, "d" -> 10)
+
+        val resultado = Map[String, Int]()
+
+        m1.foreach { case (letra, valor1) =>
+            if (m2.contains(letra))  {
+                val valor2 = m2(letra)
+                resultado(letra) = valor1 + valor2 
+            }
+        }
+        println(resultado.toMap) // toMap convierte el resultado a un Map inmutable
+        println()
+    }
+
+    /* Ejercicio 3: Palabras únicas en dos textos
+    Dadas dos listas de palabras (pueden tener repetidas), encuentra las palabras que aparecen en ambas listas 
+    pero solo una vez en cada una. */
+    private def ejercicio3(): Unit = {
+        println("-------------------------------------------")
+        println("Ejercicio 3: Palabras únicas en dos textos")
+        val texto1 = List("sol", "luna", "estrella", "sol", "mar")
+        val texto2 = List("mar", "sol", "luna", "luna", "cielo")
+
+                
+    }
 }
 
 
 
+    
 
-
-
-
-/* Ejercicio 1: Invertir un Mapa
-Dado un Map[String, Int] que asocia nombres de personas con su edad, crea un nuevo mapa que asocie cada edad con un conjunto 
-de nombres que la tienen.
-
-Ejemplo de entrada:
-
-val personas = Map("Ana" -> 30, "Luis" -> 25, "Eva" -> 30, "Juan" -> 25)
-Salida esperada:
-
-Map(30 -> Set("Ana", "Eva"), 25 -> Set("Luis", "Juan"))
-
-
-
-Ejercicio 2: Intersección de claves y suma de valores
-Dado dos mapas Map[String, Int], busca las claves comunes y suma sus valores, creando un nuevo mapa con esas sumas.
-
-Ejemplo:
-
-val m1 = Map("a" -> 1, "b" -> 2, "c" -> 3)
-val m2 = Map("b" -> 5, "c" -> 7, "d" -> 10)
-Salida esperada:
-
-Map("b" -> 7, "c" -> 10)
-
-
-
+/*
 Ejercicio 3: Palabras únicas en dos textos
 Dadas dos listas de palabras (pueden tener repetidas), encuentra las palabras que aparecen en ambas listas pero solo una vez 
 en cada una.
